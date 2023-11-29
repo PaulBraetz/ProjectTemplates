@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "identity": "RhoMicro.Templates.Generator",
+    "author": "Paul Brätz",
+    "classifications": [
+        "Generator",
+        "C#"
+    ],
+    "name": "RhoMicro Generator",
+    "groupIdentity": "RhoMicro.Templates.Generator",
+    "shortName": "rhogen",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "$(ProjectName)",
+    "preferNameDirectory": true,
+    "symbols": {
+        "Author": {
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "$(Author)",
+            "defaultValue": "Paul Brätz"
+        },
+        "Description": {
+            "type": "parameter",
+            "isRequired": true,
+            "datatype": "text",
+            "replaces": "$(Description)"
+        },
+        "Tags": {
+            "type": "parameter",
+            "isRequired": true,
+            "datatype": "text",
+            "replaces": "$(Tags)",
+            "defaultValue": "Source Generator"
+        },
+        "Year":{
+            "type": "parameter",
+            "isRequired":true,
+            "datatype":"text",
+            "replaces": "$(Year)"
+        }
+    }
+}

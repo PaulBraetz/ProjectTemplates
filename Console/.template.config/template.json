@@ -1,14 +1,14 @@
 {
     "$schema": "http://json.schemastore.org/template",
-    "identity": "RhoMicro.Templates.Library",
+    "identity": "RhoMicro.Templates.Console",
     "author": "Paul Brätz",
     "classifications": [
-        "Library",
+        "Console",
         "C#"
     ],
-    "name": "RhoMicro Library",
-    "groupIdentity": "RhoMicro.Templates.Library",
-    "shortName": "rholib",
+    "name": "RhoMicro Console",
+    "groupIdentity": "RhoMicro.Templates.Console",
+    "shortName": "rhocon",
     "tags": {
         "language": "C#",
         "type": "project"
