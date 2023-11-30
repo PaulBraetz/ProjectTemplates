@@ -1,0 +1,26 @@
+<Project>
+	<PropertyGroup Label="VersionInfo">
+		<Version>0.0.0-dev</Version>
+		<AssemblyVersion>0.0.0.0</AssemblyVersion>
+		<FileVersion>0.0.0.0</FileVersion>
+		<InformationalVersion>0.0.0-dev</InformationalVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Label="AnalysisInfo">
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>All</AnalysisMode>
+		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Label="PackageInfo">
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<Authors>Paul Brätz</Authors>
+		<Copyright>2023</Copyright>
+		<Company>RhoMicro</Company>
+	</PropertyGroup>
+</Project>
