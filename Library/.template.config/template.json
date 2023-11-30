@@ -22,6 +22,25 @@
             "replaces": "$(Author)",
             "defaultValue": "Paul Brätz"
         },
+        "Description": {
+            "type": "parameter",
+            "isRequired": true,
+            "datatype": "text",
+            "replaces": "$(Description)"
+        },
+        "Tags": {
+            "type": "parameter",
+            "isRequired": false,
+            "datatype": "text",
+            "replaces": "$(Tags)",
+            "defaultValue": ""
+        },
+        "Year":{
+            "type": "parameter",
+            "isRequired":true,
+            "datatype":"text",
+            "replaces": "$(Year)"
+        },
         "Framework": {
             "type": "parameter",
             "description": "The target framework for the project.",
@@ -29,12 +48,16 @@
             "enableQuotelessLiterals": true,
             "choices": [
                 {
-                    "choice": "net6.0",
-                    "description": "Target .NET 6"
+                    "choice": "net8.0",
+                    "description": "Target .NET 8"
                 },
                 {
                     "choice": "net7.0",
                     "description": "Target .NET 7"
+                },
+                {
+                    "choice": "net6.0",
+                    "description": "Target .NET 6"
                 },
                 {
                     "choice": "netstandard2.1",
@@ -46,7 +69,7 @@
                 }
             ],
             "replaces": "$(TargetFrameworkMoniker)",
-            "defaultValue": "netstandard2.0"
+            "defaultValue": "net8.0"
         }
     }
 }

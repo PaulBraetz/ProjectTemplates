@@ -30,10 +30,10 @@
         },
         "Tags": {
             "type": "parameter",
-            "isRequired": true,
+            "isRequired": false,
             "datatype": "text",
             "replaces": "$(Tags)",
-            "defaultValue": "Source Generator"
+            "defaultValue": ""
         },
         "Year":{
             "type": "parameter",
@@ -69,7 +69,7 @@
                 }
             ],
             "replaces": "$(TargetFrameworkMoniker)",
-            "defaultValue": "net7.0"
+            "defaultValue": "net8.0"
         }
     }
 }
