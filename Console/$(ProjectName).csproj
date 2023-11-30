@@ -3,28 +3,16 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>$(TargetFrameworkMoniker)</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<LangVersion>latest</LangVersion>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
-		<AnalysisMode>All</AnalysisMode>
-		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Authors>$(Author)</Authors>
 		<Description>
 			$(Description)
 		</Description>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<PackageTags>$(Tags)</PackageTags>
-		<Version>0.0.0-alpha-1</Version>
 		<PackageId>$(MSBuildProjectName)</PackageId>
 		<PackageId Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</PackageId>
-		<Company>RhoMicro</Company>
 		<RepositoryUrl>https://github.com/PaulBraetz/$(ProjectName)/</RepositoryUrl>
 	</PropertyGroup>
 

@@ -1,31 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+	
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<developmentDependency>true</developmentDependency>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
 		<IsRoslynComponent>true</IsRoslynComponent>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
-		<AnalysisMode>All</AnalysisMode>
-		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-		<LangVersion>latest</LangVersion>
-		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Authors>$(Author)</Authors>
 		<Description>
 			$(Description)
 		</Description>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<PackageTags>$(Tags)</PackageTags>
-		<Version>0.0.0-alpha-1</Version>
-		<PackageId>RhoMicro.CodeAnalysis.$(ProjectName)</PackageId>
-		<Company>RhoMicro</Company>
+		<PackageId>$(MSBuildProjectName)</PackageId>
+		<PackageId Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</PackageId>
 		<RepositoryUrl>https://github.com/PaulBraetz/$(ProjectName)/</RepositoryUrl>
 	</PropertyGroup>
 
@@ -33,10 +23,15 @@
 		<DefineConstants>$(DefineConstants);GENERATOR</DefineConstants>
 	</PropertyGroup>
 
-	<!--_AutoUpdateAssemblyName-->
 	<PropertyGroup>
-		<AssemblyName>RhoMicro.CodeAnalysis.$(ProjectName)</AssemblyName>
-		<RootNamespace>RhoMicro.CodeAnalysis.$(ProjectName)</RootNamespace>
+		<!--_AutoUpdateAssemblyName-->
+		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+		<AssemblyName Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</AssemblyName>
+
+		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		<RootNamespace Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName.Replace(".",
+			"_"))</RootNamespace>
+
 		<WarningsAsErrors>$(WarningsAsErrors);NU1605;1591;1573;1712;nullable</WarningsAsErrors>
 	</PropertyGroup>
 
