@@ -14,24 +14,10 @@
 			$(Description)
 		</Description>
 		<PackageTags>$(Tags)</PackageTags>
-		<PackageId>$(MSBuildProjectName)</PackageId>
-		<PackageId Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</PackageId>
-		<RepositoryUrl>https://github.com/PaulBraetz/$(ProjectName)/</RepositoryUrl>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<DefineConstants>$(DefineConstants);GENERATOR</DefineConstants>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<!--_AutoUpdateAssemblyName-->
-		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
-		<AssemblyName Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</AssemblyName>
-
-		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-		<RootNamespace Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName.Replace(".","_"))</RootNamespace>
-
-		<WarningsAsErrors>$(WarningsAsErrors);NU1605;1591;1573;1712;nullable</WarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -41,10 +27,6 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Remove=".editorconfig"></None>
 	</ItemGroup>
 
 	<ItemGroup>

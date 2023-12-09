@@ -11,28 +11,10 @@
 			$(Description)
 		</Description>
 		<PackageTags>$(Tags)</PackageTags>
-		<PackageId>$(MSBuildProjectName)</PackageId>
-		<PackageId Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</PackageId>
-		<RepositoryUrl>https://github.com/PaulBraetz/$(ProjectName)/</RepositoryUrl>
 	</PropertyGroup>
-
-	<PropertyGroup>
-		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
-		<AssemblyName Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</AssemblyName>
-
-		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-		<RootNamespace Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName.Replace(".","_"))</RootNamespace>
-
-		<WarningsAsErrors>$(WarningsAsErrors);NU1605;1591;1573;1712;nullable</WarningsAsErrors>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<None Remove=".editorconfig"></None>
-	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="/" CopyToOutputDirectory="Always" />
 		<None Include="LICENSE.txt" Pack="true" PackagePath="/" CopyToOutputDirectory="Always" />
 	</ItemGroup>
-
 </Project>
