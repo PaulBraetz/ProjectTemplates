@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	
+	<!--AutoUpdateAssemblyName-->
+		
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<IncludeBuildOutput>false</IncludeBuildOutput>

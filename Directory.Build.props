@@ -1,7 +1,12 @@
 <Project>
+	<PropertyGroup>
+		<AutoIncrementedAssemblyRevision>18</AutoIncrementedAssemblyRevision>
+	</PropertyGroup>
+	
 	<PropertyGroup Label="VersionInfo">
-		<Version>0.0.0</Version>
-		<AssemblyVersion>$(Version).0</AssemblyVersion>
+		<Version>8.0.0</Version>
+		<AssemblyVersion Condition="$(Configuration) == 'Release'">$(Version).0</AssemblyVersion>
+		<AssemblyVersion Condition="$(Configuration) == 'Debug'">$(Version).$(AutoIncrementedAssemblyRevision)</AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Label="AnalysisInfo">
