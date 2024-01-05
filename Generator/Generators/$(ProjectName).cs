@@ -1,4 +1,4 @@
-namespace RhoMicro.CodeAnalysis;
+namespace RhoMicro.CodeAnalysis.$(ProjectName).Generators;
 
 using Microsoft.CodeAnalysis;
 
