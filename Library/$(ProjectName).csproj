@@ -6,9 +6,7 @@
 
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Description>
-			$(Description)
-		</Description>
+		<Description>$(Description)</Description>
 		<PackageTags>$(Tags)</PackageTags>
 	</PropertyGroup>
 
