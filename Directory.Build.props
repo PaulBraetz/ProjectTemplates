@@ -1,12 +1,16 @@
 <Project>
 	<PropertyGroup>
-		<AutoIncrementedAssemblyRevision>18</AutoIncrementedAssemblyRevision>
+		<AutoIncrementedAssemblyRevision>322</AutoIncrementedAssemblyRevision>
 	</PropertyGroup>
-	
+
 	<PropertyGroup Label="VersionInfo">
-		<Version>0.0.0-dev</Version>
-		<AssemblyVersion Condition="$(Configuration) == 'Release'">$(Version).0</AssemblyVersion>
-		<AssemblyVersion Condition="$(Configuration) == 'Debug'">$(Version).$(AutoIncrementedAssemblyRevision)</AssemblyVersion>
+		<Version>0.0.0</Version>
+		<ReleaseAssemblyVersion >$(Version).0</ReleaseAssemblyVersion>
+		<TestProjectAssemblyVersion >$(ReleaseAssemblyVersion)</TestProjectAssemblyVersion>
+		<DebugAssemblyVersion >$(Version).$(AutoIncrementedAssemblyRevision)</DebugAssemblyVersion>
+		<AssemblyVersion Condition="$(Configuration) == 'Debug'">$(DebugAssemblyVersion)</AssemblyVersion>
+		<AssemblyVersion Condition="$(Configuration) == 'Release'">$(ReleaseAssemblyVersion)</AssemblyVersion>
+		<AssemblyVersion Condition="$(IsTestProject) == true">$(TestProjectAssemblyVersion)</AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Label="AnalysisInfo">
@@ -17,6 +21,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<PackageOutputPath>$(SolutionDir)\dist\nuget</PackageOutputPath>
 	</PropertyGroup>
 
 	<PropertyGroup Label="PackageInfo">
@@ -27,12 +32,12 @@
 		<Company>RhoMicro</Company>
 		<PackageId>$(MSBuildProjectName)</PackageId>
 		<PackageId Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</PackageId>
-		<RepositoryUrl>https://github.com/PaulBraetz/$(ProjectName)/</RepositoryUrl>
+		<RepositoryUrl>https://github.com/PaulBraetz/RhoMicro.CodeAnalysis/tree/master/$(MSBuildProjectName)</RepositoryUrl>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
-		<AssemblyName Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</AssemblyName>
+		<AssemblyName>$(MSBuildProjectName).$(AssemblyVersion)</AssemblyName>
+		<AssemblyName Condition="'$(SolutionName)'!=''">$(SolutionName).$(AssemblyName)</AssemblyName>
 
 		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 		<RootNamespace Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</RootNamespace>
@@ -41,10 +46,12 @@
 		<WarningsAsErrors>$(WarningsAsErrors);NU1605;1573;1712;CA1825;CA1062;nullable</WarningsAsErrors>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<InternalsVisibleTo Condition="$(IsTestProject)!=true" Include="$(MSBuildProjectName).Tests.$(AssemblyVersion)"/>
+	<ItemGroup Condition="$(IsTestProject)!=true" >
+		<InternalsVisibleTo Include="$(MSBuildProjectName).Tests.$(TestProjectAssemblyVersion)"/>
+		<InternalsVisibleTo Condition="'$(SolutionName)'!=''"
+							Include="$(SolutionName).$(MSBuildProjectName).Tests.$(TestProjectAssemblyVersion)"/>
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<None Remove=".editorconfig"></None>
 	</ItemGroup>
