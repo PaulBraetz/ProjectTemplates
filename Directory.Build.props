@@ -1,6 +1,6 @@
 <Project>
 	<PropertyGroup>
-		<AutoIncrementedAssemblyRevision>322</AutoIncrementedAssemblyRevision>
+		<AutoIncrementedAssemblyRevision>0</AutoIncrementedAssemblyRevision>
 	</PropertyGroup>
 
 	<PropertyGroup Label="VersionInfo">
@@ -28,11 +28,11 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<Authors>Paul Brätz</Authors>
-		<Copyright>2023</Copyright>
+		<Copyright>2024</Copyright>
 		<Company>RhoMicro</Company>
 		<PackageId>$(MSBuildProjectName)</PackageId>
 		<PackageId Condition="'$(SolutionName)'!=''">$(SolutionName).$(MSBuildProjectName)</PackageId>
-		<RepositoryUrl>https://github.com/PaulBraetz/RhoMicro.CodeAnalysis/tree/master/$(MSBuildProjectName)</RepositoryUrl>
+		<RepositoryUrl>https://github.com/PaulBraetz/$(SolutionName)</RepositoryUrl>
 	</PropertyGroup>
 
 	<PropertyGroup>
